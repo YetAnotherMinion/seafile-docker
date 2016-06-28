@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-MAINTAINER "yam@thinkalexandria.com"
+MAINTAINER YetAnotherMinion <yam@thinkalexandria.com>
 
 ENV NGINX_VERSION 1.11.1
 
@@ -11,7 +11,7 @@ ENV GPG_KEYS B0F4253373F8F6F510D42178520A9993A1C052F8
 #   size requested by client, allowing speedup of pageload
 # http_geoip_module creates variables using values depending on client
 #   IP address using MaxMind databases
-# --with-mail enables proxying a mail server, good for proxying gitlab
+# --with-mail enables proxying a mail server, good for proxying seafile
 #   emails
 
 ENV CONFIG "\
@@ -105,7 +105,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
 
 COPY nginx.conf /etc/nginx/nginx.conf
-# COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+COPY seafile.conf /etc/nginx/conf.d/seafile.conf
 COPY ssl/ /etc/nginx/ssl/
 
 
