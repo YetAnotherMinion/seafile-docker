@@ -2,7 +2,7 @@ version: '2'
 
 services:
   mariadb:
-    build: mariadb/10.1/
+    build: mariadb/
     environment:
       - MYSQL_ROOT_PASSWORD="my-secret-password"
   nginx:
