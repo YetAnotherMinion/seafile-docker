@@ -2,18 +2,18 @@ version: '2'
 
 services:
   mariadb:
-    build: mariadb/
+    image: seafile_mariadb
     environment:
       - MYSQL_ROOT_PASSWORD="my-secret-password"
   nginx:
-    build: nginx
+    image: seafile_nginx
     links:
       - "seafile:seafile01"
     ports:
       - "24080:80"
       - "24443:443"
   seafile:
-    build: seafile
+    image: seafile
     # volumes: /data/storage/dir
     ports:
       - "10001:10001" # ccnet port
