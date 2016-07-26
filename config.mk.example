@@ -1,0 +1,3 @@
+
+# If using a private registry then configure it here
+registry=registry.example.com
