@@ -90,3 +90,6 @@ ENV/
 
 # editor files
 *.swp
+
+# your config files
+config.mk

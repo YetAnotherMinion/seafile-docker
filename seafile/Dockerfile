@@ -127,11 +127,13 @@ RUN cd ${SEAFILE_PREFIX}/seafile-server/src/libsearpc-3.0.7 && \
 
 # seafile server installs python packages into /usr/local/lib64/ by default
 # add the seafile-server third party packages to the path as well
-ENV 	PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/site-packages:/usr/local/lib64/python2.7/site-packages:${SEAFILE_PREFIX}/seafile-server/seahub/thirdpart
+ENV 	PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/site-packages:/usr/local/lib64/python2.7/site-packages:${SEAFILE_PREFIX}/seafile-server/seahub/thirdpart \
+	CCNET_CONF_DIR=${SEAFILE_PREFIX}/ccnet \
+	SEAFILE_CONF_DIR=${SEAFILE_PREFIX}/conf \
+	SEAFILE_CENTRAL_CONF_DIR=${SEAFILE_CONF_DIR}
 
-COPY seafile_setup.py ${SEAFILE_PREFIX}/seafile_setup.py
-RUN cd ${SEAFILE_PREFIX} && \
-	python seafile_setup.py --host=192.168.0.19 --server-name="foobar"
+COPY seafile_setup.sh ${SEAFILE_PREFIX}/seafile_setup.sh
+RUN cd ${SEAFILE_PREFIX} && ./seafile_setup.sh
 
 EXPOSE 10001 12001 8082 8000
 

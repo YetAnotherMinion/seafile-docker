@@ -1,4 +1,4 @@
-set -x
+# set -x
 
 
 # these environment variables are needed for the manage.py to work
@@ -40,12 +40,12 @@ secret_key="cc950851-51b1-4992-ac55-ec5eeb424cfb98f0"
 echo "SECRET_KEY = \"$secret_key\"" > ${SEAFILE_CONF_DIR}/seahub_settings.py
 # email setup
 echo "EMAIL_USE_TLS = True" > ${SEAFILE_CONF_DIR}/seahub_settings.py
-echo "EMAIL_HOST = smtp.example.com" > ${SEAFILE_CONF_DIR}/seahub_settings.py
-echo "EMAIL_HOST_USER = username@example.com" > ${SEAFILE_CONF_DIR}/seahub_settings.py
-echo "EMAIL_HOST_PASSWORD = password" > ${SEAFILE_CONF_DIR}/seahub_settings.py
+echo "EMAIL_HOST = \"smtp.example.com\"" > ${SEAFILE_CONF_DIR}/seahub_settings.py
+echo "EMAIL_HOST_USER = \"username@example.com\"" > ${SEAFILE_CONF_DIR}/seahub_settings.py
+echo "EMAIL_HOST_PASSWORD = \"password\"" > ${SEAFILE_CONF_DIR}/seahub_settings.py
 echo "EMAIL_PORT = 587" > ${SEAFILE_CONF_DIR}/seahub_settings.py
-echo "DEFAULT_FROM_EMAIL = EMAIL_HOST_USER" > ${SEAFILE_CONF_DIR}/seahub_settings.py
-echo "SERVER_EMAIL = EMAIL_HOST_USER" > ${SEAFILE_CONF_DIR}/seahub_settings.py
+echo "DEFAULT_FROM_EMAIL = \"username@example.com\"" > ${SEAFILE_CONF_DIR}/seahub_settings.py
+echo "SERVER_EMAIL = \"username@example.com\"" > ${SEAFILE_CONF_DIR}/seahub_settings.py
 
 ###### create gunicorn config
 mkdir -p ${SEAFILE_PREFIX}/seafile-server/runtime/
