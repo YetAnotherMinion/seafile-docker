@@ -6,7 +6,8 @@ include $(CONFIG)
 
 all: seafile_nginx seafile_mariadb seafile
 
-seafile:
+# the db image needs to be available before the seafile installation starts
+seafile: seafile_mariadb
 	make -C seafile registry=$(registry)
 
 seafile_nginx:
